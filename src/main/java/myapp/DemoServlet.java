@@ -25,7 +25,25 @@ public class DemoServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws IOException {
-    resp.setContentType("text/plain");
-    resp.getWriter().println("{ \"name\": \"vijaya\" }");
+    PrintWriter pr=res.getWriter();// line 10
+        res.setContentType("text/html");
+        try
+        {
+           int x=Integer.parseInt(req.getParameter("t1"));
+           int y=Integer.parseInt(req.getParameter("t2"));
+           int z=x+y;
+           pr.println("<HTML>");
+           pr.println("<HEAD><TITLE>Hello</TITLE></HEAD>");
+           pr.println("<BODY>");
+           pr.println("First No.<input type=text value=" +x +"><br><br>");
+           pr.println("Second No.<input type=text value=" +y +"><br><br>");
+           pr.println("Output No:<input type=text value=" +z +"><br><br>");
+           pr.println("<input type=submit value=submit>");
+           pr.println("</BODY></HTML>");
+        }
+        catch(Exception e)
+        {
+        pr.println("Invalid Input");
+        }
   }
 }
