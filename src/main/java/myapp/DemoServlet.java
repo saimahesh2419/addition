@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package myapp;
+import javax.servlet.http.*;
+import javax.servlet.*;
+import java.io.*;
+import javax.servlet.annotation.WebServlet;
+@WebServlet("/inputservlet")
 
-import java.io.IOException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-public class DemoServlet extends HttpServlet {
-  @Override
-  public void doGet(HttpServletRequest req, HttpServletResponse resp)
-      throws IOException {
-    PrintWriter pr=res.getWriter();// line 10
+public class Inputservlet extends HttpServlet
+{
+    public void doPost(HttpServletRequest req,HttpServletResponse res)throws 
+    IOException , ServletException
+    {
+        PrintWriter pr=res.getWriter();// line 10
         res.setContentType("text/html");
         try
         {
@@ -45,5 +45,6 @@ public class DemoServlet extends HttpServlet {
         {
         pr.println("Invalid Input");
         }
-  }
+    } 
+    
 }
